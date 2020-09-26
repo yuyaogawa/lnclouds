@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>lnclouds</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='js/main.js'></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>I'm leaving in <%= data.status %> hours ...</h1>
+    <p>Please feed me so that I can live longer in this world.</p>
+    <a href='lightning:<%= data.topup %>'><img crossorigin="anonymous" src="https://chart.googleapis.com/chart?cht=qr&amp;chs=300x300&amp;chl=lightning%3A<%= data.topup %>" id="qr" width="200" height="200" style="width:200px; height:auto; max-width:100%;"></a>
   </body>
 </html>
