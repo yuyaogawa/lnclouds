@@ -12,11 +12,15 @@ router.get('/', function(req, res, next) {
     var topup = JSON.parse(json2);
 
     const DIR = '/root/NDLC/NDLC.CLI/bin/Release/netcoreapp3.1/';
+    const eventfullname = 'olivia/elections';
     const oracleList = execSync(DIR + 'ndlc-cli -testnet --datadir ' + DIR +'Olivia oracle list').toString();
+    let currentEvent = execSync(DIR + 'ndlc-cli -testnet --datadir ' + DIR +'Olivia event show ' + eventfullname).toString();
+    currentEvent = currentEvent.replace(/\r?\n/g, '<br>');
 
     var data = { 'status': status.hours_left,
                  'topup': topup.invoice,
-                 'oracle': oracleList,
+                 'oracleList': oracleList,
+                 'currentEvent': currentEvent,
              };
     res.render('index', {data});
 });
